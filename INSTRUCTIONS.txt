@@ -85,12 +85,13 @@ Overview: Slideshow and traversal of the node workflow.
 The sequential and iterative view include: change button, mode button, show button
 The buttons will be aligned at the top right corner in the same order as stated.
 
-The show button when clicked will display below it an horizontal separator.
+The show button when clicked will display below the view an horizontal separator.
 Below it on the top right corner will be a toggle button.
 On the far right a vertical scroll bar.
 In between will be the simple card of uploaded files and reference nodes.
 Below the card will be the name of the node.
 If the toggle button is clicked it will change the card color only for uploaded files.
+The mode button will change accordingly to the selected node context.
 
 VIEW SEQUENTIAL
 
