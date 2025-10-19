@@ -1,0 +1,128 @@
+SCREENS
+---------
+
+
+CHAT
+
+Overview: The chat will display the user input, generated via the prompt.
+The chat honors the iterative mode / sequential mode node context.
+The chat will include: header, vertical scrolling bar, view button and text.
+The top left header indicates the name of the node image which is currently being worked on.
+Indented below the text will be conformed as in a row of three columns. If view mode is on(toggled),
+first a plus sign will appear for each block of text. Then comes the text and finally the 
+node name to which it belongs.If view mode is off(untoggled), then only text will show.
+Finally, completely at the right side the vertical scrolling bar.
+
+
+PROMPT
+
+Overview: The prompt will allow the user to add files and type input.
+The prompt will include: a hold button, add button, input field, send button, header.
+The header will be the name of the current node at the top right corner.
+The send button at the bottom right.
+To the bottom left the add button.
+In the bottom middle the input field with the word "Type..." placeholder. If the field contains,
+attached files, they will be separated by a horizontal divisor line, and be underneath it. 
+Additionaly, while the field contains 
+the added files, a hold button will show below the add button until they are removed.
+
+
+CARD
+
+SIMPLE CARD
+
+Overview: Holds node
+
+ENHANCED CARD
+
+Overview: Holds node with other details.
+The card includes: a header, a node, lock button, share button, details button.
+The details button will pop up the details pop-up pane.
+The share button will pop up the social media pop-up pane.
+The context lock button.
+A click on the node will always trigger image enlargement to full app size.To exit
+click outside the image.
+The header will be above the cards frame.
+
+
+VIEWS
+
+Overview: Slideshow and traversal of the node workflow.
+
+The sequential and iterative view include: change button, mode button, show button
+The buttons will be aligned at the top right corner in the same order as stated.
+
+The show button when clicked will display below it an horizontal separator.
+Below it on the top right corner will be a toggle button.
+On the far right a vertical scroll bar.
+In between will be the simple card of uploaded files and reference nodes.
+Below the card will be the name of the node.
+If the toggle button is clicked it will change the card color only for uploaded files.
+
+VIEW SEQUENTIAL
+
+The view sequential will additionaly include: header, slide arrows.
+The header will be at the top left corner with the name of the current node.
+
+The slideshow will be in the mid section, with as many enhanced cards as allowed by the screensize
+will be next to each other in a hhorizontal line. 
+Above each card it's name. Completely at the right side the slide arrows.
+
+The slide arrows are four arrows aligned in a diamond shape. The up and down arrows
+are clompletely opaqued. while the left and right arrows traverse the branch,
+which in this case means a direct parent/child relationship.
+
+Any current node which is being built, is considered the last node of the branch
+and therefore will be unlocked. If locked, no further down nodes can be built on 
+that branch.
+Any prior node which was worked will be locked.
+If a locked node is unlocked it will be considered in a blank iterative context,
+meaning, it is now in an iterative context, but no new child nodes have yet been built.
+A node can revert to sequential(become locked again) if no further nodes
+ were built in iterative context, 
+meaning, it remained in a blank iterative context.
+The parents node lock and the mode button are therefore dependant and tied to
+change together.
+
+VIEW ITERATIVE
+
+The view iterative will additionaly contain: enhanced card, slide arrows.
+
+The slideshow will be in the mid section, with an enhanced card of the working node(parent)
+on the left, followed by a vertical line separating child nodes. Color follows hthe sibling
+node, if multiple when sliding.
+
+The slide arrows are four arrows aligned in a diamond shape. The up and down arrows
+traverse parent and child nodes. The child node traversed will be the one active.
+The left and right arrows traverse siblings from the same level. 
+
+On each iteration, a new child represents a new branch.
+If the working node (parent node) is locked, no further child nodes can be made.
+Working node can only change to sequential context if containing one child; if it does,
+it becomes a locked node.
+Any new child nodes will be considered unlocked.
+
+VIEW ALL
+
+The view all will additionaly contain: a search bar, vertical scroll bar
+
+At the top left corner a search bar with a palcehholder for "Search ..."
+Below it as many enhanced cards the screen can fit ordered as in a grid.
+
+
+NODE MAP
+ 
+Overview: N tree map view of the nodes. 
+The node map will include: header, zoom in button, zoom out button, 
+zoom percentage, vertical scroll bar, tree map.
+The hheader is at the top left corner wihth the name of the current node.
+The zoom button group will be in the right top corner, in the following order:
+minus button, percentage number, plus button.
+Below that containing the rest of the space is the map, and at the very right the vertical
+scroll bar.
+Each node in the map is slectable via click to change the app context.
+
+
+FLOWS
+
+Overview: Flows that have been identified
