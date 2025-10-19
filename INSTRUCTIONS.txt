@@ -156,20 +156,3 @@ minus button, percentage number, plus button.
 Below that containing the rest of the space is the map, and at the very right the vertical
 scroll bar.
 Each node in the map is slectable via click to change the app context.
-
-
-ICON LIST
-locked button
-unlocked button
-share button
-details button
-delete button
-slide arrows
-send button
-attach button
-hold button
-close button
-
-FLOWS
-
-Overview: Flows that have been identified.
