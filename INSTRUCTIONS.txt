@@ -1,5 +1,5 @@
-SCREENS
----------
+SCREENS/COMPONENTS
+------------------
 
 
 CHAT
@@ -7,11 +7,18 @@ CHAT
 Overview: The chat will display the user input, generated via the prompt.
 The chat honors the iterative mode / sequential mode node context.
 The chat will include: header, vertical scrolling bar, view button and text.
-The top left header indicates the name of the node image which is currently being worked on.
-Indented below the text will be conformed as in a row of three columns. If view mode is on(toggled),
-first a plus sign will appear for each block of text. Then comes the text and finally the 
-node name to which it belongs.If view mode is off(untoggled), then only text will show.
+The top left header indicates the name of the node image which is currently being worked on. Else,
+If no nodes exist chat will only display the message "Nothing to display". Else,
+At the top right corner is the view button.
+If view mode is off(untoggled), then only text will show.
+If view mode is on for sequential context, a plus sign will show in front of the text, and at the end,
+the name of the refence node where it came from.
+If view mode is on for iterative context a plus sign will show in front of the text, and at the end,
+the name of the refence child node that is being created.
+
+
 Finally, completely at the right side the vertical scrolling bar.
+
 
 
 PROMPT
@@ -21,11 +28,13 @@ The prompt will include: a hold button, add button, input field, send button, he
 The header will be the name of the current node at the top right corner.
 The send button at the bottom right.
 To the bottom left the add button.
-In the bottom middle the input field with the word "Type..." placeholder. If the field contains,
+In the bottom middle the input field with the word "Type..." as placeholder. If the field contains,
 attached files, they will be separated by a horizontal divisor line, and be underneath it. 
 Additionaly, while the field contains 
 the added files, a hold button will show below the add button until they are removed.
-
+The added files will appear in pills with and X button at the right to remove.
+The hold button will allow the attached files to remain as input after each send succesion.
+The hold button will change color when activated.
 
 CARD
 
@@ -36,13 +45,37 @@ Overview: Holds node
 ENHANCED CARD
 
 Overview: Holds node with other details.
-The card includes: a header, a node, lock button, share button, details button.
-The details button will pop up the details pop-up pane.
-The share button will pop up the social media pop-up pane.
-The context lock button.
-A click on the node will always trigger image enlargement to full app size.To exit
+The card includes: a header, a node, lock button, share button, details button, delete button, frame.
+The frame will hold the node, and the buttons.
+The buttons will be below the node.
+The lock button, share button, details button will be together on the bottom left.
+The details button will pop-up the details pane.
+The share button will pop-up the social media pane.
+The context lock button can switch between opened and closed icon.
+The delete button will be on the bottom right. It will pop-up the deletion pane.
+A click on the node will always trigger image enlargement to full app size. To exit
 click outside the image.
-The header will be above the cards frame.
+The header will be above(outside) the cards frame.
+
+
+POP-UPS
+
+DELETE
+
+The pane will contain a warning icon with the "Attention" word.
+An X button in the top right corner.
+The phrase below will state "The node marked for deletion has been detected to contain one or more childs."
+At the bottom will be a delete button on the left and a cancel on the right.
+If the delete button is clicked all screens/components will refresh to reflect proper current node. The node 
+to be refreshed is the next parent node.
+
+
+DETAILS
+
+An X button in the top right corner.
+Will contain the node name, date of creation, text used for creation, reference files names if any
+number of child nodes.
+At the bottom a copy to clipboard button.
 
 
 VIEWS
@@ -108,6 +141,7 @@ The view all will additionaly contain: a search bar, vertical scroll bar
 
 At the top left corner a search bar with a palcehholder for "Search ..."
 Below it as many enhanced cards the screen can fit ordered as in a grid.
+The search can be done referencing any of cards details.
 
 
 NODE MAP
@@ -123,6 +157,18 @@ scroll bar.
 Each node in the map is slectable via click to change the app context.
 
 
+ICON LIST
+locked button
+unlocked button
+share button
+details button
+delete button
+slide arrows
+send button
+attach button
+hold button
+close button
+
 FLOWS
 
-Overview: Flows that have been identified
+Overview: Flows that have been identified.
