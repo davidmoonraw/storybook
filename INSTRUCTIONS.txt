@@ -1,6 +1,10 @@
 SCREENS/COMPONENTS
 ------------------
 
+SETTINGS
+Overview: Different advanced settings.
+The settings pane will contain a subheader and field menu for:
+LLm temperature , LLM weight, and LLM algorithm. Use defaullts from gemini.
 
 CHAT
 
@@ -16,9 +20,7 @@ the name of the refence node where it came from.
 If view mode is on for iterative context a plus sign will show in front of the text, and at the end,
 the name of the refence child node that is being created.
 
-
 Finally, completely at the right side the vertical scrolling bar.
-
 
 
 PROMPT
@@ -35,6 +37,7 @@ the added files, a hold button will show below the add button until they are rem
 The added files will appear in pills with and X button at the right to remove.
 The hold button will allow the attached files to remain as input after each send succesion.
 The hold button will change color when activated.
+
 
 CARD
 
