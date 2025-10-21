@@ -6,20 +6,22 @@ Overview: Different advanced settings.
 The settings pane will contain a subheader and field menu for:
 LLm temperature , LLM weight, and LLM algorithm. Use defaullts from gemini.
 
-CHAT
+HISTORY
 
-Overview: The chat will display the user input, generated via the prompt.
-The chat honors the iterative mode / sequential mode node context.
-The chat will include: header, vertical scrolling bar, view button and text.
-The top left header indicates the name of the node image which is currently being worked on. Else,
-If no nodes exist chat will only display the message "Nothing to display". Else,
-At the top right corner is the view button.
+Overview: The history will display the user input, generated via the prompt.
+During app's intial state it will only display the message "Nothing to display..."
+The history honors the iterative mode / sequential mode node context.
+The history will include: header, vertical scrolling bar, view button and text.
+The top left header indicates the name of the node image which is currently being worked on. 
+Else, if no nodes exist, history will only display the message "Nothing to display". 
+Else, at the top right corner is the view button.
 If view mode is off(untoggled), then only text will show.
-If view mode is on for sequential context, a plus sign will show in front of the text, and at the end,
+If view mode is on for iterative context, a plus sign will show in front of the text, and at the end,
 the name of the refence node where it came from.
-If view mode is on for iterative context a plus sign will show in front of the text, and at the end,
-the name of the refence child node that is being created.
-
+If view mode is on for sequential context , only the text followed
+by the name of the refence child node from which it was created will be displayed.
+For both contexts, the reference node at the right from the text will not be displayed
+if it has been deleted.
 Finally, completely at the right side the vertical scrolling bar.
 
 
@@ -41,9 +43,12 @@ The hold button will change color when activated.
 
 CARD
 
+the card to be used will 
+always be the enhanced card unless stated otherwise to be the simple card.
+
 SIMPLE CARD
 
-Overview: Holds node
+Overview: Holds node and buttons
 
 ENHANCED CARD
 
@@ -58,7 +63,8 @@ The context lock button can switch between opened and closed icon.
 The delete button will be on the bottom right. It will pop-up the deletion pane.
 A click on the node will always trigger image enlargement to full app size. To exit
 click outside the image.
-The header will be above(outside) the cards frame.
+The header will be above(outside) the cards frame. 
+A click on the header will change the app to that node
 
 
 POP-UPS
@@ -67,11 +73,13 @@ DELETE
 
 The pane will contain a warning icon with the "Attention" word.
 An X button in the top right corner.
-The phrase below will state "The node marked for deletion has been detected to contain one or more childs."
+The phrase below will depend given none or any child node.
+Message for none:  "The node [NAME] marked for deletion was not detected with childs."
+Message for any: "The node [NAME] marked for deletion has been detected to 
+contain one or more childs, to be removed."
 At the bottom will be a delete button on the left and a cancel on the right.
-If the delete button is clicked all screens/components will refresh to reflect proper current node. The node 
-to be refreshed is the next parent node.
-
+If the node is deleted all screens/components will refresh to the next parent node.
+If no parent component, it will be considered in it's initial state.
 
 DETAILS
 
@@ -84,8 +92,9 @@ At the bottom a copy to clipboard button.
 VIEWS
 
 Overview: Slideshow and traversal of the node workflow.
+During app's intial state it will only display the message "Nothing to display..."
 
-The sequential and iterative view include: change button, mode button, show button
+The sequential and iterative view include: full button, mode button, show button
 The buttons will be aligned at the top right corner in the same order as stated.
 
 The show button when clicked will display below the view an horizontal separator.
@@ -93,7 +102,7 @@ Below it on the top right corner will be a toggle button.
 On the far right a vertical scroll bar.
 In between will be the simple card of uploaded files and reference nodes.
 Below the card will be the name of the node.
-If the toggle button is clicked it will change the card color only for uploaded files.
+If the toggle button is clicked it will change the card color only on uploaded files to be the same.
 The mode button will change accordingly to the selected node context.
 
 VIEW SEQUENTIAL
@@ -101,7 +110,7 @@ VIEW SEQUENTIAL
 The view sequential will additionaly include: header, slide arrows.
 The header will be at the top left corner with the name of the current node.
 
-The slideshow will be in the mid section, with as many enhanced cards as allowed by the screensize
+The slideshow will be in the mid section, with as many cards as allowed by the screensize
 will be next to each other in a hhorizontal line. 
 Above each card it's name. Completely at the right side the slide arrows.
 
@@ -123,9 +132,9 @@ change together.
 
 VIEW ITERATIVE
 
-The view iterative will additionaly contain: enhanced card, slide arrows.
+The view iterative will additionaly contain: card, slide arrows.
 
-The slideshow will be in the mid section, with an enhanced card of the working node(parent)
+The slideshow will be in the mid section, with a card of the working node(parent)
 on the left, followed by a vertical line separating child nodes. Color follows hthe sibling
 node, if multiple when sliding.
 
@@ -137,25 +146,34 @@ On each iteration, a new child represents a new branch.
 If the working node (parent node) is locked, no further child nodes can be made.
 Working node can only change to sequential context if containing one child; if it does,
 it becomes a locked node.
-Any new child nodes will be considered unlocked.
+Any new child nodes will be considered unlocked. They inherit the parent context,
+meaning if selected they are also in iterative mode. If locked, it is considered the 
+end of that child branch.
 
 VIEW ALL
 
 The view all will additionaly contain: a search bar, vertical scroll bar
 
-At the top left corner a search bar with a palcehholder for "Search ..."
-Below it as many enhanced cards the screen can fit ordered as in a grid.
-The search can be done referencing any of cards details.
+Toogled by the full button.
+
+At the top left corner a search bar with a placeholder for "Search ..."
+Below it a grid with the cards of all nodes. The number of displayed
+cards will vary on screen size and need to be scrolled down.
+The search can be done referencing any of the nodes details.
+The search input wil filter the displayed cards.
 
 
 NODE MAP
  
 Overview: N tree map view of the nodes. 
+During app's intial state it will only display the message "Nothing to display..."
 The node map will include: header, zoom in button, zoom out button, 
-zoom percentage, vertical scroll bar, tree map.
-The hheader is at the top left corner wihth the name of the current node.
+zoom percentage, vertical scroll bar, tree map, node count pill.
+The header is at the top left corner wihth the name of the current node.
 The zoom button group will be in the right top corner, in the following order:
 minus button, percentage number, plus button.
 Below that containing the rest of the space is the map, and at the very right the vertical
 scroll bar.
-Each node in the map is slectable via click to change the app context.
+Each node in the map is selectable via click to change the app context.
+Each node will be able to display a tooltip when hovered with its name.
+By default the node map will be zoomed/display direct relations of the node(parent and child nodes).
