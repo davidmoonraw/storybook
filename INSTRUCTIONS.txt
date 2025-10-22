@@ -1,17 +1,23 @@
-SCREENS/COMPONENTS
+COMPONENTS
 ------------------
 
 SETTINGS
-Overview: Different advanced settings.
-The settings pane will contain a subheader and field menu for:
-LLm temperature , LLM weight, and LLM algorithm. Use defaullts from gemini.
+Overview: Different advanced settings allowed by the underlying LLM algorithm.
+
+The settings pane will contain the component name at the top and beneth it
+the  subheaders and input fields for:
+LLM temperature , LLM weight, and LLM algorithm. Use defaullts from gemini.
 
 HISTORY
 
 Overview: The history will display the user input, generated via the prompt.
-During app's intial state it will only display the message "Nothing to display..."
+
+During app's intial state it will only display the component name and
+in the center the message "Nothing to display...".
 The history honors the iterative mode / sequential mode node context.
-The history will include: header, vertical scrolling bar, view button and text.
+The history will include: component name, header, vertical scrolling bar, view button and text.
+The top left corner will contain the component name. Aligned horizontally to the right corner
+the view button.
 The top left header indicates the name of the node image which is currently being worked on. 
 Else, if no nodes exist, history will only display the message "Nothing to display". 
 Else, at the top right corner is the view button.
@@ -28,31 +34,45 @@ Finally, completely at the right side the vertical scrolling bar.
 PROMPT
 
 Overview: The prompt will allow the user to add files and type input.
-The prompt will include: a hold button, add button, input field, send button, header.
-The header will be the name of the current node at the top right corner.
-The send button at the bottom right.
-To the bottom left the add button.
-In the bottom middle the input field with the word "Type..." as placeholder. If the field contains,
+
+The prompt will include: a hold button, add button, input field, send button.
+The prompt may include reference files.
+Reference files may be any added nodes or files. The words "added", "attached", "updated"
+may be used interchangebly.
+During initial state and when nothing is attached, the hold button will
+not appear.
+
+The components items will be aligned with the send button at the right, the add button at the left.
+In the middle the input field with the word "Type..." as placeholder. If the field contains,
 attached files, they will be separated by a horizontal divisor line, and be underneath it. 
-Additionaly, while the field contains 
+Additionaly, while the input field contains 
 the added files, a hold button will show below the add button until they are removed.
+To add reference files click the add button.
+The reference files will appear as pills with a delete button.
+The reference pills delete button removes the file.
 The added files will appear in pills with and X button at the right to remove.
-The hold button will allow the attached files to remain as input after each send succesion.
+The hold button if clicked will allow the attached files to remain as input after each send succesion.
+To avoid keeping reference files as input, click hold again.
 The hold button will change color when activated.
+The input field will reset to it's placeholder text after each send, and remove the
+reference files if no hold.
+The send button will submit the node creation based on the input.
 
 
 CARD
+Overview: Holds node with other details.
 
-the card to be used will 
+The card to be used will 
 always be the enhanced card unless stated otherwise to be the simple card.
 
 SIMPLE CARD
 
-Overview: Holds node and buttons
+The card includes: a header, a node, a frame.
+The frame will hold the node.
+The header containing the node name will be out the frame.
 
 ENHANCED CARD
 
-Overview: Holds node with other details.
 The card includes: a header, a node, lock button, share button, details button, delete button, frame.
 The frame will hold the node, and the buttons.
 The buttons will be below the node.
@@ -64,6 +84,7 @@ The delete button will be on the bottom right. It will pop-up the deletion pane.
 A click on the node will always trigger image enlargement to full app size. To exit
 click outside the image.
 The header will be above(outside) the cards frame. 
+The header will contain the nodes name.
 A click on the header will change the app to that node
 
 
@@ -72,47 +93,60 @@ POP-UPS
 DELETE
 
 The pane will contain a warning icon with the "Attention" word.
-An X button in the top right corner.
+A close button in the top right corner.
 The phrase below will depend given none or any child node.
 Message for none:  "The node [NAME] marked for deletion was not detected with childs."
 Message for any: "The node [NAME] marked for deletion has been detected to 
 contain one or more childs, to be removed."
 At the bottom will be a delete button on the left and a cancel on the right.
-If the node is deleted all screens/components will refresh to the next parent node.
-If no parent component, it will be considered in it's initial state.
+If the node being worked, or a node above that contains it in it's branches is deleted,
+all components will refresh to the next parent node.
+If no parent node, it will be considered in it's initial state.
 
 DETAILS
 
-An X button in the top right corner.
-Will contain the node name, date of creation, text used for creation, reference files names if any
+The pane will contain header, text, exit button, clipboard button.
+The exit button in the top right corner.
+The header will be the node name followed by the word "details"
+The text will contain the node name, date of creation, text used for creation, reference files names if any
 number of child nodes.
-At the bottom a copy to clipboard button.
+At the bottom the clipboard button.
 
 
 VIEWS
 
 Overview: Slideshow and traversal of the node workflow.
-During app's intial state it will only display the message "Nothing to display..."
 
-The sequential and iterative view include: full button, mode button, show button
-The buttons will be aligned at the top right corner in the same order as stated.
+During app's intial state it will only display the component name,
+and the buttons. Addittionaly in the center the message "Nothing to display...".
 
-The show button when clicked will display below the view an horizontal separator.
-Below it on the top right corner will be a toggle button.
+All views include: component name, card, show button, mode button, full button.
+The show button, mode button, full button will be refered as grouped buttons. They will be 
+aligned in this order unless otherwise stated.
+The component name will be at the top left corner.
+The grouped buttons will be horizontally aligned at the top right corner.
+
+The mode button will change the app context. It's default state is iterative context.
+
+The show button when clicked will display the referenced files section.
+It's default state is to hide the reference section.
+An horizontal separator will show between the reference section and above.
+This section will include on the top left corner a show button.
 On the far right a vertical scroll bar.
-In between will be the simple card of uploaded files and reference nodes.
-Below the card will be the name of the node.
-If the toggle button is clicked it will change the card color only on uploaded files to be the same.
-The mode button will change accordingly to the selected node context.
+The simple cards of reference files will be presented in a grid fashion.
+If the view button is clicked it will change the card color only on uploaded files to be the same.
+
+The slidearrows will traverse the node map. 
+Up and down arrows traverse parent.
+Left and right arrow traverse siblings.
 
 VIEW SEQUENTIAL
 
-The view sequential will additionaly include: header, slide arrows.
-The header will be at the top left corner with the name of the current node.
+The view sequential will contain:  slide arrows.
 
 The slideshow will be in the mid section, with as many cards as allowed by the screensize
-will be next to each other in a hhorizontal line. 
-Above each card it's name. Completely at the right side the slide arrows.
+will be next to each other in a horizontal line. 
+Above each card it's name. Completely at the right side the slide buttons.
 
 The slide arrows are four arrows aligned in a diamond shape. The up and down arrows
 are clompletely opaqued. while the left and right arrows traverse the branch,
@@ -132,11 +166,11 @@ change together.
 
 VIEW ITERATIVE
 
-The view iterative will additionaly contain: card, slide arrows.
+The view iterative will contain: card, slide arrows.
 
 The slideshow will be in the mid section, with a card of the working node(parent)
-on the left, followed by a vertical line separating child nodes. Color follows hthe sibling
-node, if multiple when sliding.
+on the left, followed by a vertical separator, separating child nodes. 
+Vertical separator will only show if child nodes exist.
 
 The slide arrows are four arrows aligned in a diamond shape. The up and down arrows
 traverse parent and child nodes. The child node traversed will be the one active.
@@ -150,30 +184,39 @@ Any new child nodes will be considered unlocked. They inherit the parent context
 meaning if selected they are also in iterative mode. If locked, it is considered the 
 end of that child branch.
 
-VIEW ALL
+VIEW FULL
 
-The view all will additionaly contain: a search bar, vertical scroll bar
+The view full will contain: a search bar, vertical scroll bar
 
-Toogled by the full button.
+Toggled by the search button.
 
 At the top left corner a search bar with a placeholder for "Search ..."
 Below it a grid with the cards of all nodes. The number of displayed
 cards will vary on screen size and need to be scrolled down.
 The search can be done referencing any of the nodes details.
-The search input wil filter the displayed cards.
-
+The search input wil filter the displayed cards with the given text.
+The settings component and slidearrows will be removed from the layout during view full.
 
 NODE MAP
  
 Overview: N tree map view of the nodes. 
-During app's intial state it will only display the message "Nothing to display..."
+During app's intial state or if there are no nodes at all
+it will only display the component name and in the center the message "Nothing to display...".
 The node map will include: header, zoom in button, zoom out button, 
-zoom percentage, vertical scroll bar, tree map, node count pill.
-The header is at the top left corner wihth the name of the current node.
-The zoom button group will be in the right top corner, in the following order:
+zoom percentage, tree map, node count pill.
+The node count pill will contain the text in the following form: [number]["node"("s")].
+i.e: 1 node , 123 nodes
+The header will contain the node name.
+Clicking the header will reset the zoom view.
+The node count pill will be in the right top corner horizontally aligned with the 
+component name.
+In the mid section the header is at the top left corner with the name of the current node,
+and the zoom buttons will be in the right top corner horizontally aligned, in the following order:
 minus button, percentage number, plus button.
-Below that containing the rest of the space is the map, and at the very right the vertical
-scroll bar.
+Below that containing the rest of the space are the node interconnections
+which we know as node map.
 Each node in the map is selectable via click to change the app context.
 Each node will be able to display a tooltip when hovered with its name.
 By default the node map will be zoomed/display direct relations of the node(parent and child nodes).
+
+The nodes colors will 

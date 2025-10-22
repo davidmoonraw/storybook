@@ -12,6 +12,3 @@ attach button
 hold button
 close button
 
-FLOWS
-
-Overview: Flows that have been identified.
