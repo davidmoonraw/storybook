@@ -1,12 +1,20 @@
 COMPONENTS
-------------------
+
+Overview: App components
+
+All components layout where applicable will update towards
+the node created.
+
+
 
 SETTINGS
+
 Overview: Different advanced settings allowed by the underlying LLM algorithm.
 
 The settings pane will contain the component name at the top and beneth it
 the  subheaders and input fields for:
 LLM temperature , LLM weight, and LLM algorithm. Use defaullts from gemini.
+
 
 HISTORY
 
@@ -50,7 +58,7 @@ the added files, a hold button will show below the add button until they are rem
 To add reference files click the add button.
 The reference files will appear as pills with a delete button.
 The reference pills delete button removes the file.
-The added files will appear in pills with and X button at the right to remove.
+The added files will appear in pills with a close button at the right to remove.
 The hold button if clicked will allow the attached files to remain as input after each send succesion.
 To avoid keeping reference files as input, click hold again.
 The hold button will change color when activated.
@@ -60,6 +68,7 @@ The send button will submit the node creation based on the input.
 
 
 CARD
+
 Overview: Holds node with other details.
 
 The card to be used will 
@@ -85,7 +94,7 @@ A click on the node will always trigger image enlargement to full app size. To e
 click outside the image.
 The header will be above(outside) the cards frame. 
 The header will contain the nodes name.
-A click on the header will change the app to that node
+A click on the header will change the app to that node.
 
 
 POP-UPS
@@ -112,6 +121,21 @@ The text will contain the node name, date of creation, text used for creation, r
 number of child nodes.
 At the bottom the clipboard button.
 
+ADD
+
+The add nodes screen will overlay current working screen. It will have
+transparency/opacity to distinguish it is being overlayed.
+It will contain a search bar at the top, and below it a grid 
+with cards. At the right a vertical scrolling bar.
+To exit click the overlay part.
+
+UPLOAD
+
+This will be the users workstation GUI handler for file uploads.
+
+IMAGE
+
+Overlay screen with opacity and the iamge enlarged in the middle.
 
 VIEWS
 
@@ -197,26 +221,39 @@ The search can be done referencing any of the nodes details.
 The search input wil filter the displayed cards with the given text.
 The settings component and slidearrows will be removed from the layout during view full.
 
+
 NODE MAP
  
-Overview: N tree map view of the nodes. 
+Overview: N tree map view of the nodes.
+
 During app's intial state or if there are no nodes at all
 it will only display the component name and in the center the message "Nothing to display...".
-The node map will include: header, zoom in button, zoom out button, 
+
+The node map will include: component name, header, zoom in button, zoom out button, 
 zoom percentage, tree map, node count pill.
 The node count pill will contain the text in the following form: [number]["node"("s")].
 i.e: 1 node , 123 nodes
 The header will contain the node name.
 Clicking the header will reset the zoom view.
+The zoom buttons do as supposed.
 The node count pill will be in the right top corner horizontally aligned with the 
 component name.
-In the mid section the header is at the top left corner with the name of the current node,
+In the mid section the header is at the top left corner,
 and the zoom buttons will be in the right top corner horizontally aligned, in the following order:
-minus button, percentage number, plus button.
-Below that containing the rest of the space are the node interconnections
+zoom in button, percentage number, zoom out button.
+Below that, containing the rest of the space are the node interconnections
 which we know as node map.
-Each node in the map is selectable via click to change the app context.
+Each node in the map is selectable to change the app context.
 Each node will be able to display a tooltip when hovered with its name.
-By default the node map will be zoomed/display direct relations of the node(parent and child nodes).
+By default the node map will be zoomed in iterative context to show parent, itself and child,
+and for sequential it will show itself and child. If no child, and parent is iterative, then
+show parent and itself.
 
-The nodes colors will 
+For the nodes map working colors, the working node is the starting point,
+with default zoom.
+The nodes colors will be red, for iterative context, and 
+all childs will be gray.
+If in sequential, it will be yellow,
+and all childs will be gray. If no child, and parent is iterative, parent is red
+and itself yellow.
+For non default zoom, colors will always be green for itself, and blue for the root node.

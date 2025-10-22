@@ -1,0 +1,159 @@
+1.NEW START
+
+This is the starting point for the user, where nothing has been done.
+App is in complete default state.
+
+2.FIRST PROMPT INPUT - ITERATIVE MODE
+
+The user remains in the iterative context, and types in the chat box
+box.
+
+3.FIRST APP UPDATE
+
+The user has submitted the chat box without any reference files, and the app has updated accordingly
+to reflect the first node creation.
+
+4.SHOW BUTTON TOGGLED - NO CONTENT TO DISPLAY
+
+The show button is clicked to display any reference files, which it doesn't as it is
+currently empty.
+
+5.SECOND PROMPT INPUT - ITERATIVE MODE
+
+A second chat input is typed and submitted.
+
+6.UPDATED COMPONENTS WITH  SECOND CHILD NODE CREATION - ITERATIVE MODE
+
+The screen now reflects a two node tree. The root node and it's first
+child node.
+
+7.THIRD PROMPT USER INPUT - ITERATIVE MODE
+
+A third chat input is typed and submitted.
+
+8.UPDATED COMPONENTS WITH  SECOND CHILD NODE CREATION - ITERATIVE MODE
+
+The screen now reflects a three node tree. The root node and it's two
+child nodes.
+
+9.HISTORY VIEW SHOW BUTTON TOGGLED - ITERATIVE MODE
+
+The history view button is clicked to enrich the chat with information of
+the nodes of procedence.
+
+10.SECOND CHILD NODE ACCESS FROM VIEW  - UPDATED COMPONENTS
+
+The second node has been accessed by clicking it's name header.
+Additionaly the show button from the history has been untoggled.
+
+11.VIEW TOGGLE TO SEQUENTIAL MODE
+
+The mode context button has been clicked to change from iterative
+to sequential.
+
+12.SECOND CHILD NODE  USER INPUT - SEQUENTIAL MODE
+
+A forth chat input is typed and submitted.
+
+13.UPDATED COMPONENTS  WITH NEW CHILD NODE FROM SEQUENTIAL MODE
+
+The node tree is now 3 levels deep. 
+The history show button once again toggled, which is clearly
+distinct from iterative.
+
+14.ADD BUTTON CONTEXT MENU
+
+The prompt displays two new buttons, after clicking the add button.
+The add node will then be clicked.
+
+15.ADD BUTTON CONTEXT MENU
+
+The add node screen shows a layout with all the current created nodes.
+B1 is selected to be included in the reference files.
+
+User then acceses the upload file button, which in return opens 
+the users graphical interface component to handle the file selection.
+TULIP.JPG is selected from users files.
+
+16.ADDED FILES, KEEP HOLD AND USER INPUT -  SEQUENTIAL MODE
+
+The prompt displays two pills, one for each reference file attached.
+Additionally the hold button has been toggled to hold the files on the prompt
+after the submit takes place.
+A fifth chat input is typed and submitted.
+
+17.ADD  USER INPUT, REFERENCE FILES  -  SEQUENTIAL MODE
+
+The prompt kept the reference files, while a new one CUP.JPG was added,
+for a total of three reference files. The hold button has been untoggled
+to avoid keeping them after the chat submit.
+A sixth chat input is typed and submitted.
+
+18.LOCK NODE
+
+The node has been locked through the lock icon on the card.
+
+19.SHOW NODE REFERENCE FILES
+
+The show button has been toggle to display it's reference files.
+
+20.CHANGE REFERENCE FILES COLOR
+
+The refrence files section show button has been toggled.
+The cards colors reflect accordingly hteir procedence.
+B1 node will be accessed through the history.
+
+21.NESTED ITERATIVE MODE FIRST NODE CREATION ACCESED VIA HISTORY NODE
+
+The history show button has been toggled.
+A seventh chat input is typed and submitted.
+
+22.NESTED ITERATIVE MODE SECOND NODE CREATION
+
+The node map now has two layers of iterative mode.
+An eight chat input is typed and submitted.
+
+23.NESTED ITERATIVE MODE SECOND NODE COMPLETION
+
+The nested iterative node has now two childs.
+
+24.FULL NODE MAP ZOOM OUT
+
+Changing the default zoom by zooming out reveals, the complete
+node map.
+
+25.FULL VIEW TOGGLE
+
+Full view layout is now displayed after clicking the full button.
+Working node is still the same.
+
+26.FULL  VIEW - SEARCH USE
+
+The search bar is now used by typing the node to be filtered out, B1.
+
+27.NODE DELETE REQUEST
+
+The delete button from the card has been clicked, and the layout
+updated with the delete pop-up.
+
+28.COMPONENTS UPDATED AFTER DELETE REQUEST
+
+The node map clearly deviates from the amount of time that the chat has been submitted,
+but clearly reflects the tree structure which is expected.
+
+29.HISTORY VIEW TOGGLED REFLECTING DELETED REFERENCE NODE
+
+The history show button reflects the deletion of the node, yet respects the chat sequence block.
+
+30.ACCESS VIA NODE
+
+The following node has been directly accessed from the node map, which
+is not possible from the slide arrows.
+
+31.NODE MAP TOOLTIP
+
+The tooltip is displayed on the node that is being hovered.
+
+32.IMAGE ENLARGEMENT
+
+Card is clciked to expand the image to full view.
