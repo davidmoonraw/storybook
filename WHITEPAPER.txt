@@ -1,17 +1,2 @@
 
 
-ICON LIST
-locked button
-unlocked button
-share button
-details button
-delete button
-slide arrows
-send button
-attach button
-hold button
-close button
-
-FLOWS
-
-Overview: Flows that have been identified.
