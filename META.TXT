@@ -1,0 +1,40 @@
+***TOOLS USED FOR PROYECT***
+Github for code repository
+Vscode for IDE editor
+Google Studio AI for code
+Google Gemini AI for research
+ChatGPT AI for research
+Canvas for image drafts
+Penup for ideas, scketches, drafts, others
+
+***LINKS***
+GOOGLE STUDIO APP SPINS
+Spin 1: https://ai.studio/apps/drive/1vDQ7sjY_HlSM4ubxZs29bV1jMrzvn33w
+Spin 2: https://aistudio.google.com/apps/drive/10kNenSWKQ3-QxzYrR-hg_sKLHlNjFpZN
+
+PROYECT REPOSITORY
+GIT: https://github.com/davidmoonraw/storybook
+
+***ROAD MAP***
+
+FEATURES
+
+Add list of icons
+Add tooltips on buttons
+Add card lock color change and message
+Add define grid layout on all components
+Add more options for settings algorithm
+concerning amount of child nodes displayed in
+views
+Add Iterative max node siblings layout
+Add each text line node hover color change
+
+CHECKPOINT
+Startup
+1. Idea
+2. Drafts
+3. Test tools
+4. Second spin
+
+
+Enterprise

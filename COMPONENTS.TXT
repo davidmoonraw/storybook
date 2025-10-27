@@ -2,9 +2,14 @@ COMPONENTS
 
 Overview: App components
 
-All components layout where applicable will update towards
-the node created.
+From a technical standpoint use Redux for component slicing.
 
+A node has a name, a string, a context, an image . It may contain reference images which are 
+either uploaded images or images from other nodes.
+
+No components should display the vertical scrolling bar unless if needed.
+
+The app context refers to the working node that the components reference.
 
 
 SETTINGS
@@ -21,29 +26,50 @@ HISTORY
 Overview: The history will display the user input, generated via the prompt.
 
 During app's intial state it will only display the component name and
-in the center the message "Nothing to display...".
+in the mid section center the message "Nothing to display...".
 The history honors the iterative mode / sequential mode node context.
-The history will include: component name, header, vertical scrolling bar, view button and text.
+The history will include: component name, header, vertical scrolling bar, view button, block, 
+plus, text and sub-header.
 The top left corner will contain the component name. Aligned horizontally to the right corner
 the view button.
-The top left header indicates the name of the node image which is currently being worked on. 
-Else, if no nodes exist, history will only display the message "Nothing to display". 
+The top left header indicates the name of the node image which is currently being worked on.
+
+The view button shows or hides the plus and sub header in the blocks layers.
+
+The block is composed by layers.
+The block is divided in two layers: main layer and the tail layer.
+The main layer references the nodes string creation, which is only used for the root node creation.
+Hence the main layer does not contain either plus or sub-header when the view mode is toggled.
+The tail layer contains the block layers.
+Each block layer will contain text and may contain a plus and/or a sub-header. 
+
+A plus indicates that the string was added on a node in iterative context.
+
+A sub-header is the node from where the string is referenced.
+Clicking the sub-header updates the app context to that node.
+Clicking the sub-header will not update the app context to that node.
+The string is the text generated via the chat prompt for that referenced node.
+
+The output of the block will change depending on the working nodes context.
+
+If no nodes exist, history will only display the message "Nothing to display". 
 Else, at the top right corner is the view button.
-If view mode is off(untoggled), then only text will show.
-If view mode is on for iterative context, a plus sign will show in front of the text, and at the end,
-the name of the refence node where it came from.
-If view mode is on for sequential context , only the text followed
-by the name of the refence child node from which it was created will be displayed.
-For both contexts, the reference node at the right from the text will not be displayed
-if it has been deleted.
-Finally, completely at the right side the vertical scrolling bar.
+
+If view mode is off(untoggled), then only text will show in the block.
+If view mode is on and the working node is in iterative context, a plus sign will show in front of the text, 
+and at the end, the name of the refence node where it came from.
+If view mode is on and the working node is in sequential context , only the text followed
+by the sub-header will appear.
+Clicking the reference node, updates the view with that node.
+
+Finally, completely at the right side the vertical scrolling bar if needed to display more content.
 
 
 PROMPT
 
 Overview: The prompt will allow the user to add files and type input.
 
-The prompt will include: a hold button, add button, input field, send button.
+The prompt will include: a hold button, add button, input field, send button, upload button, add node button.
 The prompt may include reference files.
 Reference files may be any added nodes or files. The words "added", "attached", "updated"
 may be used interchangebly.
@@ -55,16 +81,21 @@ In the middle the input field with the word "Type..." as placeholder. If the fie
 attached files, they will be separated by a horizontal divisor line, and be underneath it. 
 Additionaly, while the input field contains 
 the added files, a hold button will show below the add button until they are removed.
-To add reference files click the add button.
-The reference files will appear as pills with a delete button.
-The reference pills delete button removes the file.
-The added files will appear in pills with a close button at the right to remove.
+
+The add button when clicked will display the upload button and add node button
+The reference files will appear once a file has been added with any of the prior buttons.
+The reference files will appear as pills with a close button.
+The pills close button removes the file.
+
 The hold button if clicked will allow the attached files to remain as input after each send succesion.
 To avoid keeping reference files as input, click hold again.
 The hold button will change color when activated.
 The input field will reset to it's placeholder text after each send, and remove the
 reference files if no hold.
 The send button will submit the node creation based on the input.
+
+An empty chat prompt cannot submit.
+An empty chat prompt with added files cannot submit.
 
 
 CARD
@@ -78,7 +109,7 @@ SIMPLE CARD
 
 The card includes: a header, a node, a frame.
 The frame will hold the node.
-The header containing the node name will be out the frame.
+The header containing the node name will be out the frame and above it.
 
 ENHANCED CARD
 
@@ -89,7 +120,9 @@ The lock button, share button, details button will be together on the bottom lef
 The details button will pop-up the details pane.
 The share button will pop-up the social media pane.
 The context lock button can switch between opened and closed icon.
-The delete button will be on the bottom right. It will pop-up the deletion pane.
+The delete button will be on the bottom right. 
+The delete button will pop-up the deletion pane if there are no constraints on the node.
+An attached mode within its reference files is considered a constraint.
 A click on the node will always trigger image enlargement to full app size. To exit
 click outside the image.
 The header will be above(outside) the cards frame. 
@@ -97,10 +130,11 @@ The header will contain the nodes name.
 A click on the header will change the app to that node.
 
 
-POP-UPS
+MODALS
 
-DELETE
+NODE DELETE
 
+The pane will contain a header, text, delete button, cancel button.
 The pane will contain a warning icon with the "Attention" word.
 A close button in the top right corner.
 The phrase below will depend given none or any child node.
@@ -108,11 +142,13 @@ Message for none:  "The node [NAME] marked for deletion was not detected with ch
 Message for any: "The node [NAME] marked for deletion has been detected to 
 contain one or more childs, to be removed."
 At the bottom will be a delete button on the left and a cancel on the right.
+The delete button will remove the node and everything below it.
+
 If the node being worked, or a node above that contains it in it's branches is deleted,
 all components will refresh to the next parent node.
 If no parent node, it will be considered in it's initial state.
 
-DETAILS
+NODE DETAILS
 
 The pane will contain header, text, exit button, clipboard button.
 The exit button in the top right corner.
@@ -121,13 +157,19 @@ The text will contain the node name, date of creation, text used for creation, r
 number of child nodes.
 At the bottom the clipboard button.
 
-ADD
+NODE ADD
 
-The add nodes screen will overlay current working screen. It will have
+The nodes add screen will overlay current working screen. It will have
 transparency/opacity to distinguish it is being overlayed.
-It will contain a search bar at the top, and below it a grid 
-with cards. At the right a vertical scrolling bar.
-To exit click the overlay part.
+It contains a search bar, grid of cards, add button, vertical scrolling bar.
+The search bar is used to filter grid cards using any of the cards details.
+The search bar is at the top.
+Below is the grid with cards and at the right a vertical scrolling bar if multiple cards exist.
+The add button is at the button right.
+Click all cards required for selection and finally click the add button.
+
+Additionally to exit if no adding is required, or wish to exit, click the overlay part.
+
 
 UPLOAD
 
@@ -135,7 +177,8 @@ This will be the users workstation GUI handler for file uploads.
 
 IMAGE
 
-Overlay screen with opacity and the iamge enlarged in the middle.
+Overlay screen with opacity and the image enlarged in the middle.
+
 
 VIEWS
 
@@ -145,20 +188,28 @@ During app's intial state it will only display the component name,
 and the buttons. Addittionaly in the center the message "Nothing to display...".
 
 All views include: component name, card, show button, mode button, full button.
-The show button, mode button, full button will be refered as grouped buttons. They will be 
-aligned in this order unless otherwise stated.
-The component name will be at the top left corner.
+The show button, mode button, search button will be refered as grouped buttons. 
+They will be aligned in this order unless otherwise stated.
 The grouped buttons will be horizontally aligned at the top right corner.
+The component name will be at the top left corner.
 
-The mode button will change the app context. It's default state is iterative context.
+The mode button will change the app context.
+The mode button icon will change between iterative and sequential context.
+The mode buttons default state is iterative context.
+
+The context defines how nodes are being created.
+For iterative, it will look multi branched: A1 ,B1, B2, B2, nth
+For sequential it will look single branched: A1, B1, C1, D1
 
 The show button when clicked will display the referenced files section.
+The show button icon will change when toggled.
 It's default state is to hide the reference section.
 An horizontal separator will show between the reference section and above.
 This section will include on the top left corner a show button.
-On the far right a vertical scroll bar.
+On the far right a vertical scroll bar if required.
 The simple cards of reference files will be presented in a grid fashion.
-If the view button is clicked it will change the card color only on uploaded files to be the same.
+If the show button is clicked it will change the card color frame to be the same for files of the same
+procedence. Hence, only two colors, one for node files and another for uploaded files.
 
 The slidearrows will traverse the node map. 
 Up and down arrows traverse parent.
@@ -166,11 +217,17 @@ Left and right arrow traverse siblings.
 
 VIEW SEQUENTIAL
 
-The view sequential will contain:  slide arrows.
+The view sequential will contain: slide arrows.
 
 The slideshow will be in the mid section, with as many cards as allowed by the screensize
 will be next to each other in a horizontal line. 
 Above each card it's name. Completely at the right side the slide buttons.
+
+The maximum number of nodes showing in the screen along with the 
+working node at a given time, is three.
+i.e:
+
+A1, B1, C1, D1(CURRENT)
 
 The slide arrows are four arrows aligned in a diamond shape. The up and down arrows
 are clompletely opaqued. while the left and right arrows traverse the branch,
@@ -183,32 +240,43 @@ Any prior node which was worked will be locked.
 If a locked node is unlocked it will be considered in a blank iterative context,
 meaning, it is now in an iterative context, but no new child nodes have yet been built.
 A node can revert to sequential(become locked again) if no further nodes
- were built in iterative context, 
-meaning, it remained in a blank iterative context.
+were built in iterative context, meaning, it remained in a blank iterative context.
 The parents node lock and the mode button are therefore dependant and tied to
 change together.
+
+Creating a node in sequential mode will always update the context to the created node.
 
 VIEW ITERATIVE
 
 The view iterative will contain: card, slide arrows.
 
 The slideshow will be in the mid section, with a card of the working node(parent)
-on the left, followed by a vertical separator, separating child nodes. 
+on the left, followed by a vertical separator that is separating child nodes on the right. 
 Vertical separator will only show if child nodes exist.
+The maximum number of child siblings showing in the screen along with the 
+working node at a given time, is three.
+i.e:
+
+PARENT | CHILD1 CHILD2 CHILD3
 
 The slide arrows are four arrows aligned in a diamond shape. The up and down arrows
 traverse parent and child nodes. The child node traversed will be the one active.
 The left and right arrows traverse siblings from the same level. 
 
-On each iteration, a new child represents a new branch.
-If the working node (parent node) is locked, no further child nodes can be made.
-Working node can only change to sequential context if containing one child; if it does,
-it becomes a locked node.
-Any new child nodes will be considered unlocked. They inherit the parent context,
-meaning if selected they are also in iterative mode. If locked, it is considered the 
-end of that child branch.
+An iteration is considered the creation of a new child node(branch).
+Any new child node is considered to belong to iterative context and unlocked.
 
-VIEW FULL
+If the working node (parent node) is locked, no further child nodes can be made.
+
+Working node can only change to sequential context as long as it does not contain more
+than one child node; if it does, and context is changed, it becomes a locked node.
+Therefore the only two scenarios where it can be changed are:
+A- No child nodes
+B- One child node.
+
+Creating a node in iterative mode will never update the context to the created node.
+
+SEARCH
 
 The view full will contain: a search bar, vertical scroll bar
 
@@ -221,39 +289,62 @@ The search can be done referencing any of the nodes details.
 The search input wil filter the displayed cards with the given text.
 The settings component and slidearrows will be removed from the layout during view full.
 
+The card is selected in click and returns to the view component
 
 NODE MAP
  
 Overview: N tree map view of the nodes.
 
 During app's intial state or if there are no nodes at all
-it will only display the component name and in the center the message "Nothing to display...".
+it will only display the component name and in the mid section
+center the message "Nothing to display...".
+
+If user has deleted the root node it is considered in default state.
+If in default state, the name numbering and zooming also reset.
+
+Node naming is node numbering and in continuous fashion except when.
+Example for Iterative 
+Numbering might look as A1, A2, A3, B1, C1, C2
+After root node reset is expected to be the same
+
+Example for sequential
+Numbering might look as A1, B1, C1
+After root node reset is expected to be the same
+
+Node numbering will be a letter and number.
+A letter per branch, and numbers for all the siblings.
+
+Numbering scheme follows order of creation, hence node branches above might
+have at some point higher numbering than the ones nested below.
 
 The node map will include: component name, header, zoom in button, zoom out button, 
 zoom percentage, tree map, node count pill.
+
+The node count pill will be next to the component name.
+The node count pill does not appear until the first node creation and dissapears
+on all nodes removal.
 The node count pill will contain the text in the following form: [number]["node"("s")].
 i.e: 1 node , 123 nodes
 The header will contain the node name.
-Clicking the header will reset the zoom view.
-The zoom buttons do as supposed.
-The node count pill will be in the right top corner horizontally aligned with the 
-component name.
+Clicking the header will reset the zoom view to default.
+
+The zoom buttons zoom the node map.
+The zoom down button decreases image size.
+The zoom in button increases image size.
+The zoom percentage will indicate how much has been zoomed.
+The zoom default value is one hundred.
+The zoom default always includes the working node and parent node.
+
 In the mid section the header is at the top left corner,
 and the zoom buttons will be in the right top corner horizontally aligned, in the following order:
 zoom in button, percentage number, zoom out button.
-Below that, containing the rest of the space are the node interconnections
-which we know as node map.
-Each node in the map is selectable to change the app context.
-Each node will be able to display a tooltip when hovered with its name.
-By default the node map will be zoomed in iterative context to show parent, itself and child,
-and for sequential it will show itself and child. If no child, and parent is iterative, then
-show parent and itself.
 
-For the nodes map working colors, the working node is the starting point,
-with default zoom.
-The nodes colors will be red, for iterative context, and 
-all childs will be gray.
-If in sequential, it will be yellow,
-and all childs will be gray. If no child, and parent is iterative, parent is red
-and itself yellow.
-For non default zoom, colors will always be green for itself, and blue for the root node.
+In the bottom section, containing the rest of the space are the node interconnections
+which we know as node map.
+
+Each node in the map is selectable.
+When a node is selected, it will refresh the view to that node.
+Each node will be able to display a tooltip with its name when hovered.
+
+The nodes working colors are as follows.
+Iterative context nodes are red, sequential context nodes are yellow.
