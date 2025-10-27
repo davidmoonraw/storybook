@@ -1,0 +1,24 @@
+ICONS   
+
+slide arrow
+project
+send
+add
+upload
+append
+zoom in
+zoom out
+lock
+share
+details
+delete
+upload 
+mail
+view open
+view closed
+iterative
+sequential
+minimize
+more
+folder ioen 
+folder closed
