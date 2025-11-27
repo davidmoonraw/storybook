@@ -1,21 +1,115 @@
+***ROAD MAP***
+
+FEATURES
+
+SPIN  4
+----------------
+
+-Add list of icons
+-Add tooltips on buttons
+-Add card lock color change
+-Add definition for grid layout on all components for further clarification
+-Add Iterative max node siblings layout
+-Add each text line node hover color change in history
+-Rename Components (history,node map)
+-Keep main branch tidy (remove reference/no longer needed files whhich was only to speed up)
+-Stick to words approach (readdress flow.txt)
+-Remove settings component (currently tied to nano-banana)
+
+SPIN  5
+----------------------
+Define Technical stack
+Define URL'S
+
+
+
+PROJECT CHECKPOINT
+----------------------
+
+Startup
+1. Idea
+2. Drafts
+3. Test tools
+4. Spin 1: Google studio test
+5. Spin 2: First draft
+6. Spin 3: Usage of images and text
+7. Spin 4: Only text usage 
+
+
+Enterprise
+
+
 ***TOOLS USED FOR PROYECT***
 Github for code repository
 Vscode for IDE editor
 Google Studio AI for code
 Google Gemini AI for research
 ChatGPT AI for research
-Canvas for image drafts
+Canvas for image drafts (no longer)
 Penup for ideas, scketches, drafts, others
+FIREBASE STUDIO (CANT WAIT TO TEST!)
 
 ***LINKS***
 GOOGLE STUDIO APP SPINS
-Spin 1: https://ai.studio/apps/drive/1vDQ7sjY_HlSM4ubxZs29bV1jMrzvn33w
-Spin 2: https://aistudio.google.com/apps/drive/10kNenSWKQ3-QxzYrR-hg_sKLHlNjFpZN
+Spin 1: https://ai.studio/apps/drive/1ZNd3tPQpAk1L8y1FhzmfjgxE_VQtVBoT
+Spin 2: https://ai.studio/apps/drive/1vDQ7sjY_HlSM4ubxZs29bV1jMrzvn33w
+Spin 3: https://aistudio.google.com/apps/drive/10kNenSWKQ3-QxzYrR-hg_sKLHlNjFpZN
+Spin 4: 
 
 PROYECT REPOSITORY
 GIT: https://github.com/davidmoonraw/storybook
 
-***ROAD MAP***
+AUTHOR
+DAVID.MCMLXXXVIII@GMAIL.COM
+
+RATIONALE
+Why Monx app?
+
+Is a tool designed to create images in a more storybook workflow fashion.
+
+Currently (Tuesday, October 28th 2025)Gemini and ChatGPT are the most known and used apps for image generation,
+however they lack a way to progress in a flow without doom scrolling for chat and doom clicking for images.
+See this link regarding this matter: https://davidmoonraw.blogspot.com/2025/10/tech-review-look-into-google-gemini-ai.html
+Hence current tools might seem slow or short when creating a sequence of images as in a story.
+
+The app might seem in some ways a redo or just feature increase, and that's ok. 
+It's built from a different optic for a slightly different workflow.
+
+Current takeaways:
+
+- Follow image trailing
+- Keep a tidy image and chat tracking
+
+This is not the ultimate thought model, however it's a start. 
+The ultimate model will probably be a combination between Blender, PENUP and AI, which some other engineers are
+most likely working now.
+
+
+The personal ultimate goal is get rich selling 
+the product while still keeping the likes of it.
+The money is to get service woman daily. 
+ 
+Else, goal is a tool I like and use daily, like Jarvis from Iron Man.
+
+Currently although Gemini is nice, I'd like something a bit different or advanced.
+
+Image generation via AI has had quite some strength.
+
+Anything built can be seen as a story.
+
+Having used some tools like, Blender, Gemini, Penup, 3D PEN it feels like the next level.
+
+In the spirit of creativity, using tools (button that does something), does not
+seem to keep the notion of wicked fast and on track. Yes, needed and usefull if you 
+eventually want to really fine tune.
+
+This project is grasped as an idea to become a superhero.
+
+For the roadmap we have:
+
+1. Starting point of the core,.
+
+---------------------------------------------------------------------------
 
 FEATURES
 
@@ -28,13 +122,80 @@ concerning amount of child nodes displayed in
 views
 Add Iterative max node siblings layout
 Add each text line node hover color change
+----------------------------------------------------------------------------
+ISSUES S2
 
-CHECKPOINT
-Startup
-1. Idea
-2. Drafts
-3. Test tools
-4. Second spin
+The very first image that the user creates is in iterative context, 
+hence the
+default layout even when no images have yet been produced.
+
+***Fix the HISTORY component, should not display a vertical scrolling bar until 
+any content is generated.
+
+***Fix the HISTORY and NODE MAP need to display the default message in 
+the center of it's component.
+
+++explain tree history text block logic
+
+***Fix text block node reference not clickable
+
+Make view full scrollable
+view full default layout
+
+***Fix reference files not displaying show color update on frame
+
+***Fix reference file allowing empty submit
+
+***The show icon needs to change to no show icon
+
+Fix message pop up for node context unchangeable
+
+***Full view node access needs to go back to its context
+
+***Full view not filtering on search bar
+
+***Zoom buttons not showing at all
+
+Refine and expand node map ball interconnection
+
+***Fix missing icons for add button and upload file
+prompt add, input and send arrow alignement
+
+***Ensure proper cleanup on root removal
+
+***Expand component usage explanation
+
+***Fix search component to select multiple nodes on add component
 
 
-Enterprise
+SCKETCHES 
+https://www.canva.com/design/DAG2oP_v_RM/KLJF1ux4SS88lZ48r8zgcg/view?utm_content=DAG2oP_v_RM&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h9185f73517
+
+ICONS   
+
+slide arrow: circled arrow
+slided arrows: group of individual slide arrows in a dimond shape form as a control pad
+project: standard proyect
+send: the telegram similar arrow
+add: a bigger plus 
+upload: standard upload
+append: AI GENERATED
+zoom in: minus sign 
+zoom out: plus sign
+search open: open book
+search closed: closed book
+lock closed: lock closed
+lock open: lock open
+share: standard share
+details: circled exclamation
+delete: trash can
+mail: mail envelope
+view open:eye open
+view closed: eye closed
+iterative: AI GENERATED
+sequential: AI GENERATED
+minimize: standard underscore
+more: three dots
+folder open: folder open
+folder closed: folder closed
+logo (name and pet):AI GENERATED
