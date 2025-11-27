@@ -1,0 +1,20 @@
+Why Monx app?
+
+Is a tool designed to create images in a more storybook workflow fashion.
+
+Currently (Tuesday, October 28th 2025)Gemini and ChatGPT are the most known and used apps for image generation,
+however they lack a way to progress in a flow without doom scrolling for chat and doom clicking for images.
+See this link regarding this matter: https://davidmoonraw.blogspot.com/2025/10/tech-review-look-into-google-gemini-ai.html
+Hence current tools might seem slow or short when creating a sequence of images as in a story.
+
+The app might seem in some ways a redo or just feature increase, and that's ok. 
+It's built from a different optic for a slightly different workflow.
+
+Current takeaways:
+
+- Follow image trailing
+- Keep a tidy image and chat tracking
+
+This is not the ultimate thought model, however it's a start. 
+The ultimate model will probably be a combination between Blender, PENUP and AI, which some other engineers are
+most likely working now.
